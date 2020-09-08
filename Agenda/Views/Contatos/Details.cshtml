@@ -1,0 +1,25 @@
+﻿@model Agenda.Models.Contato
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes do Contato</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_Contato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_Contato)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id_Contato }, htmlAttributes: new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Voltar", "Index", "", htmlAttributes: new { @class = "btn btn-default" })
+</p>

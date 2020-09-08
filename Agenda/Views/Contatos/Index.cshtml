@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Agenda.Models.Contato>
+
+@{
+    ViewBag.Title = "Agenda de Contatos";
+}
+
+<h2>Contatos</h2>
+<br />
+<p>
+    @Html.ActionLink("Novo Contato", "Create", "", htmlAttributes: new { @class = "btn btn-success" })
+</p>
+<table class="table" style="text-align:center;">
+    <tr>
+        <th style="text-align:center;">
+            Id do Contato
+        </th>
+        <th style="text-align:center;">
+            Nome
+        </th>
+        <th style="text-align:center;">
+            Telefones Cadastrados
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id_Contato)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome_Contato)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ContatoTelEmail.Count)
+    </td>
+    <td>
+        @Html.ActionLink("Editar Contato", "Edit", new { id = item.Id_Contato }, htmlAttributes: new { @class = "btn btn-primary" })
+        @Html.ActionLink("Deletar Contato", "Delete", new { id = item.Id_Contato }, htmlAttributes: new { @class = "btn btn-danger" })
+    </td>
+</tr>
+}
+
+</table>

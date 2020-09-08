@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AgendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contato">
+    <Key>
+      <PropertyRef Name="Id_Contato" />
+    </Key>
+    <Property Name="Id_Contato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome_Contato" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContatoTelEmail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id_Contato" Type="int" Nullable="false" />
+    <Property Name="Telefone" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Table_ToTable">
+    <End Role="Contato" Type="Self.Contato" Multiplicity="1" />
+    <End Role="ContatoTelEmail" Type="Self.ContatoTelEmail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contato">
+        <PropertyRef Name="Id_Contato" />
+      </Principal>
+      <Dependent Role="ContatoTelEmail">
+        <PropertyRef Name="Id_Contato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AgendaModelStoreContainer">
+    <EntitySet Name="Contato" EntityType="Self.Contato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContatoTelEmail" EntityType="Self.ContatoTelEmail" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+      <End Role="Contato" EntitySet="Contato" />
+      <End Role="ContatoTelEmail" EntitySet="ContatoTelEmail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

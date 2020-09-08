@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AgendaModelStoreContainer" CdmEntityContainer="AgendaEntities">
+    <EntitySetMapping Name="Contato">
+      <EntityTypeMapping TypeName="AgendaModel.Contato">
+        <MappingFragment StoreEntitySet="Contato">
+          <ScalarProperty Name="Id_Contato" ColumnName="Id_Contato" />
+          <ScalarProperty Name="Nome_Contato" ColumnName="Nome_Contato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContatoTelEmail">
+      <EntityTypeMapping TypeName="AgendaModel.ContatoTelEmail">
+        <MappingFragment StoreEntitySet="ContatoTelEmail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Contato" ColumnName="Id_Contato" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

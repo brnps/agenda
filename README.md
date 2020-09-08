@@ -7,7 +7,7 @@
 <br>3 - Rodar o projeto a partir do arquivo <b>Agenda.sln</b>.</br>
 
 
-<b>Ferramentas utilizadas: </b>
+# Ferramentas utilizadas
 
 - Plataforma .NET Framework
 - ASP.NET MVC
